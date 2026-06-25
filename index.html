@@ -4,9 +4,9 @@
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <title>The Traveling Jessie Barstow — by Matt Warnock</title>
-<meta name="description" content="One ordinary girl. Infinite worlds. One door she never should have opened. A middle-grade portal-fantasy adventure by Matt Warnock.">
+<meta name="description" content="One special girl. One power-hungry queen. One chance to save all of magic. A young-adult fantasy novel by Matt Warnock.">
 <meta property="og:title" content="The Traveling Jessie Barstow">
-<meta property="og:description" content="One ordinary girl. Infinite worlds. One door she never should have opened.">
+<meta property="og:description" content="One special girl. One power-hungry queen. One chance to save all of magic.">
 <meta property="og:image" content="cover-web.jpg">
 <meta property="og:type" content="book">
 <link rel="preconnect" href="https://fonts.googleapis.com">
@@ -128,14 +128,19 @@
   .char-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:22px;max-width:920px;margin:0 auto}
   @media(max-width:760px){.char-grid{grid-template-columns:1fr;max-width:420px}}
   .char{background:var(--panel-2);border:1px solid var(--line);border-radius:14px;
-    padding:28px 24px;text-align:center;transition:transform .18s,border-color .18s}
-  .char:hover{transform:translateY(-4px);border-color:var(--teal)}
-  .char .sigil{width:64px;height:64px;border-radius:50%;margin:0 auto 16px;
-    display:flex;align-items:center;justify-content:center;font-size:1.7rem;color:#0a1622}
-  .char.jessie .sigil{background:radial-gradient(circle at 35% 30%, var(--teal-soft), var(--teal) 70%)}
-  .char.martin .sigil{background:radial-gradient(circle at 35% 30%, var(--gold-soft), #cf9a2d 70%)}
-  .char.demora .sigil{background:radial-gradient(circle at 35% 30%, #6a8aa0, #16273a 75%);color:#cfe7ea}
-  .char h3{color:#fff;font-size:1.2rem;margin-bottom:4px}
+    padding:0 0 26px;text-align:center;overflow:hidden;
+    transition:transform .18s,border-color .18s,box-shadow .18s}
+  .char:hover{transform:translateY(-4px);border-color:var(--teal);
+    box-shadow:0 16px 40px rgba(0,0,0,.4)}
+  .char .portrait{position:relative;aspect-ratio:3/4;overflow:hidden;
+    margin-bottom:18px;background:#0c1c2b}
+  .char .portrait img{width:100%;height:100%;object-fit:cover;object-position:50% 8%;
+    display:block;transition:transform .4s ease}
+  .char:hover .portrait img{transform:scale(1.04)}
+  .char .portrait:after{content:"";position:absolute;inset:0;pointer-events:none;
+    background:linear-gradient(180deg,transparent 55%,rgba(16,33,50,.85) 100%)}
+  .char h3{color:#fff;font-size:1.2rem;margin-bottom:4px;padding:0 24px}
+  .char .role,.char p{padding-left:24px;padding-right:24px}
   .char .role{color:var(--teal-soft);font-size:.78rem;text-transform:uppercase;
     letter-spacing:.16em;margin-bottom:12px}
   .char p{color:var(--muted);font-size:.96rem}
@@ -190,7 +195,7 @@
     <div class="hero-text">
       <div class="eyebrow">A Portal-Fantasy Adventure</div>
       <h1>The Traveling<br>Jessie Barstow</h1>
-      <p class="hook">"One ordinary girl. Infinite worlds. One door she never should have opened."</p>
+      <p class="hook">"One special girl. One power-hungry queen. One chance to save all of magic."</p>
       <p class="byline">A novel by <strong>Matt Warnock</strong></p>
       <div class="hero-cta">
         <a href="#signup" class="btn">Get Notified at Launch</a>
@@ -205,9 +210,9 @@
     <h2 class="section-title">The Story</h2>
     <div class="divider"></div>
     <div style="height:30px"></div>
-    <p>Jessie Barstow is a perfectly ordinary girl — until the afternoon she ducks into a dusty magic shop to escape the things hunting her. Things that wear hoods and human faces, with eyes that glow like jack-o'-lanterns and far too many teeth.</p>
-    <p>When she vanishes from one world and reappears in another, Jessie discovers she's a <em>Traveler</em>, able to slip between worlds with a thought. But her gift is exactly what a power-hungry sorceress named Demora has been searching for — and she'll drain every world dry to claim it.</p>
-    <p>With the help of Martin, a down-on-his-luck magician who's about to remember that real magic exists, Jessie races across strange and wondrous worlds toward the Source of All Magic itself — where she'll decide the fate of every world, including her own.</p>
+    <p>Jessie Barstow is a mostly ordinary girl with an extraordinary gift. She possesses the ability to travel to other worlds at will. It's a gift for which she's being hunted by sinister forces.</p>
+    <p>When she vanishes from her world and reappears in another, Jessie hopes that she's in the clear, but that won't stop the power-hungry sorceress, Demora, chasing Jessie down to get the girl's power for her own.</p>
+    <p>With the help of Martin, a down-on-his-luck magician who hasn't believed in real magic in a long time, Jessie races across strange and wondrous worlds toward the Source of All Magic itself where she'll decide the fate of every world, including her own.</p>
     <blockquote class="pullquote">"Do you believe in magic?"</blockquote>
   </div>
 </section>
@@ -239,22 +244,22 @@
     <div style="height:36px"></div>
     <div class="char-grid">
       <div class="char jessie">
-        <div class="sigil">&#10022;</div>
+        <div class="portrait"><img src="char-jessie.jpg" alt="Jessie Barstow — a determined young girl with long chestnut hair, a yellow hoodie, and a patch-covered backpack." width="600" height="800" loading="lazy"></div>
         <h3>Jessie</h3>
         <div class="role">The Traveler</div>
-        <p>An ordinary girl with an extraordinary, uncontrollable gift — vanishing from one world and landing in the next. Brave before she feels ready to be.</p>
+        <p>An ordinary girl with an extraordinary gift, able to travel anywhere she wants at will. Brave in the face of terrible danger.</p>
       </div>
       <div class="char martin">
-        <div class="sigil">&#9673;</div>
+        <div class="portrait"><img src="char-martin.jpg" alt="Martin — a lanky young magician in a rabbit-and-top-hat t-shirt, flipping a silver coin." width="600" height="800" loading="lazy"></div>
         <h3>Martin</h3>
         <div class="role">The Magician</div>
-        <p>A struggling magic-shop owner who flips a coin to stay calm — and is about to discover that the magic he gave up on was real all along.</p>
+        <p>A simple magic shop owner who gave up on the dream of real magic long ago. He must confront his past to face the future.</p>
       </div>
       <div class="char demora">
-        <div class="sigil">&#10039;</div>
+        <div class="portrait"><img src="char-demora.jpg" alt="Demora — a regal sorceress-queen in a scarlet robe with solid-black eyes, seated among glowing vines." width="600" height="800" loading="lazy"></div>
         <h3>Demora</h3>
         <div class="role">The Sorceress</div>
-        <p>A girl who could mirror any magic she touched, grown into a queen who drains whole worlds to feed her power. She wants what Jessie has.</p>
+        <p>A powerful queen determined to control the flow of magic. She seeks to right the wrongs from her childhood and bring back that which was taken from her.</p>
       </div>
     </div>
   </div>
@@ -266,7 +271,7 @@
       <h2 class="section-title">About the Author</h2>
       <div class="divider"></div>
       <div style="height:30px"></div>
-      <p><em>[Author bio placeholder]</em> — Matt Warnock is the author of <em>The Traveling Jessie Barstow</em>, his debut middle-grade fantasy adventure. Add a couple of warm, personal sentences here: where he's from, what he loves to write, and what inspired Jessie's worlds.</p>
+      <p>Matt Warnock is the author of <em>The Traveling Jessie Barstow</em>, his debut young-adult fantasy novel. Matt is a lifelong resident of Illinois where he lives with his wife, children, and their dogs. When not writing, he enjoys hiking, gardening, and too many hobbies.</p>
       <a href="#" class="btn ghost">Visit the Author Site &rarr;</a>
     </div>
   </div>
@@ -275,14 +280,14 @@
 <section id="signup" class="signup">
   <div class="wrap">
     <div class="signup-card">
-      <h2>Be First Through the Door</h2>
-      <p>The book isn't out yet. Join the list and you'll be first to know when Jessie travels — plus get the free Chapter-One PDF.</p>
+      <h2>Be the first to travel!</h2>
+      <p>The book isn't out yet. Join the list and you'll be first to know when Jessie travels, plus get the free Chapter-One PDF.</p>
       <form id="signupForm" class="form-row" onsubmit="return handleSignup(event)">
         <input type="email" id="email" placeholder="you@example.com" required aria-label="Email address">
         <button type="submit" class="btn">Notify Me</button>
       </form>
       <div class="form-success" id="formSuccess">&#10022; You're on the list. Watch your inbox for Chapter One.</div>
-      <p class="form-note">No spam — just launch news. Unsubscribe anytime.</p>
+      <p class="form-note">No spam, just launch news. Unsubscribe anytime.</p>
     </div>
   </div>
 </section>
