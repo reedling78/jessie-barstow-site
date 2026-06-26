@@ -1,0 +1,315 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>The Traveling Jessie Barstow — by Matt Warnock</title>
+<meta name="description" content="One ordinary girl. Infinite worlds. One door she should never have opened. A middle-grade portal-fantasy adventure by Matt Warnock.">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Cinzel:wght@500;700&family=Cormorant+Garamond:ital,wght@0,400;0,600;1,400&family=Nunito+Sans:wght@400;600;700&display=swap" rel="stylesheet">
+<style>
+  :root{
+    --midnight:#0b1029;
+    --midnight-2:#131a3d;
+    --panel:#171f47;
+    --gold:#e9b949;
+    --gold-soft:#f4d58d;
+    --purple:#9b6dff;
+    --purple-soft:#c4a8ff;
+    --ink:#eef1ff;
+    --muted:#a7adcf;
+    --line:rgba(155,109,255,.18);
+  }
+  *{box-sizing:border-box;margin:0;padding:0}
+  html{scroll-behavior:smooth}
+  body{
+    font-family:"Nunito Sans",system-ui,sans-serif;
+    color:var(--ink);
+    background:var(--midnight);
+    line-height:1.65;
+    overflow-x:hidden;
+  }
+  /* starfield */
+  .stars{position:fixed;inset:0;z-index:0;pointer-events:none;
+    background:
+      radial-gradient(1.5px 1.5px at 20% 30%, #fff, transparent),
+      radial-gradient(1.5px 1.5px at 70% 20%, #fff, transparent),
+      radial-gradient(1px 1px at 40% 70%, var(--gold-soft), transparent),
+      radial-gradient(1.5px 1.5px at 85% 60%, #fff, transparent),
+      radial-gradient(1px 1px at 60% 85%, var(--purple-soft), transparent),
+      radial-gradient(1px 1px at 10% 80%, #fff, transparent),
+      radial-gradient(1.5px 1.5px at 90% 35%, #fff, transparent),
+      radial-gradient(1px 1px at 30% 50%, var(--gold-soft), transparent);
+    opacity:.5;
+    animation:twinkle 8s ease-in-out infinite alternate;
+  }
+  @keyframes twinkle{from{opacity:.35}to{opacity:.65}}
+  .wrap{max-width:1080px;margin:0 auto;padding:0 24px;position:relative;z-index:1}
+  h1,h2,h3{font-family:"Cinzel",serif;letter-spacing:.02em;line-height:1.15}
+  a{color:var(--gold-soft);text-decoration:none}
+
+  /* nav */
+  nav{position:sticky;top:0;z-index:50;backdrop-filter:blur(10px);
+    background:rgba(11,16,41,.7);border-bottom:1px solid var(--line)}
+  nav .wrap{display:flex;align-items:center;justify-content:space-between;padding:14px 24px}
+  .brand{font-family:"Cinzel",serif;font-weight:700;color:var(--gold);font-size:1rem}
+  .navlinks a{color:var(--muted);margin-left:22px;font-size:.92rem}
+  .navlinks a:hover{color:var(--gold-soft)}
+  @media(max-width:640px){.navlinks{display:none}}
+
+  /* buttons */
+  .btn{display:inline-block;background:linear-gradient(135deg,var(--gold),#cf9a2d);
+    color:#1a1303;font-weight:700;padding:14px 28px;border-radius:999px;
+    border:none;cursor:pointer;font-size:1rem;font-family:"Nunito Sans",sans-serif;
+    box-shadow:0 6px 24px rgba(233,185,73,.25);transition:transform .15s,box-shadow .15s}
+  .btn:hover{transform:translateY(-2px);box-shadow:0 10px 30px rgba(233,185,73,.4)}
+  .btn.ghost{background:transparent;color:var(--purple-soft);
+    border:1px solid var(--purple);box-shadow:none}
+  .btn.ghost:hover{background:rgba(155,109,255,.1)}
+
+  /* hero */
+  header.hero{padding:80px 0 70px;text-align:center;position:relative}
+  .eyebrow{color:var(--purple-soft);text-transform:uppercase;letter-spacing:.28em;
+    font-size:.72rem;font-weight:700;margin-bottom:18px}
+  header.hero h1{font-size:clamp(2.4rem,6vw,4.2rem);color:#fff;
+    text-shadow:0 0 40px rgba(155,109,255,.35)}
+  .hook{font-family:"Cormorant Garamond",serif;font-style:italic;
+    font-size:clamp(1.2rem,3vw,1.6rem);color:var(--gold-soft);margin:22px auto 8px;max-width:640px}
+  .byline{color:var(--muted);font-size:1rem;margin-bottom:34px}
+  .hero-cta{display:flex;gap:14px;justify-content:center;flex-wrap:wrap}
+  .cover{width:230px;aspect-ratio:2/3;margin:46px auto 0;border-radius:8px;
+    background:
+      radial-gradient(circle at 50% 30%, rgba(155,109,255,.5), transparent 60%),
+      linear-gradient(160deg,#1a2350 0%, #0d1233 100%);
+    background-color:#141a3f;
+    border:1px solid var(--line);position:relative;overflow:hidden;
+    box-shadow:0 30px 60px rgba(0,0,0,.5);display:flex;flex-direction:column;
+    align-items:center;justify-content:center;text-align:center;padding:24px}
+  .cover .ct{font-family:"Cinzel",serif;color:var(--gold);font-size:1.15rem;font-weight:700;line-height:1.3}
+  .cover .ca{color:var(--muted);font-size:.8rem;margin-top:auto}
+  .cover .gem{width:42px;height:42px;border-radius:50%;margin:16px 0;
+    background:radial-gradient(circle at 35% 30%, #d8c2ff, var(--purple) 60%, #5b32b8);
+    box-shadow:0 0 24px var(--purple)}
+  .cover-note{color:var(--muted);font-size:.78rem;margin-top:12px;font-style:italic}
+
+  /* sections */
+  section{padding:72px 0;position:relative}
+  .section-title{text-align:center;color:#fff;font-size:clamp(1.6rem,4vw,2.3rem);margin-bottom:14px}
+  .section-sub{text-align:center;color:var(--muted);max-width:620px;margin:0 auto 44px}
+  .divider{width:70px;height:2px;background:linear-gradient(90deg,transparent,var(--gold),transparent);margin:18px auto 0}
+
+  /* story */
+  .story p{font-size:1.12rem;color:#dfe3ff;max-width:720px;margin:0 auto 20px;text-align:center}
+  .pullquote{font-family:"Cormorant Garamond",serif;font-style:italic;
+    font-size:clamp(1.5rem,4vw,2.1rem);color:var(--gold-soft);text-align:center;
+    max-width:760px;margin:40px auto 0;line-height:1.4}
+
+  /* teaser */
+  .teaser-panel{background:var(--panel);border:1px solid var(--line);border-radius:16px;
+    padding:42px;max-width:760px;margin:0 auto;position:relative;
+    box-shadow:0 20px 50px rgba(0,0,0,.35)}
+  .teaser-panel:before{content:"❝";position:absolute;top:6px;left:22px;
+    font-size:4rem;color:var(--purple);opacity:.3;font-family:Georgia,serif}
+  .teaser-panel p{font-family:"Cormorant Garamond",serif;font-size:1.2rem;
+    color:#e7eaff;margin-bottom:16px}
+  .teaser-fade{position:relative;max-height:340px;overflow:hidden}
+  .teaser-fade:after{content:"";position:absolute;bottom:0;left:0;right:0;height:120px;
+    background:linear-gradient(transparent,var(--panel))}
+  .teaser-cta{text-align:center;margin-top:26px}
+
+  /* characters */
+  .char-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:22px;max-width:920px;margin:0 auto}
+  @media(max-width:760px){.char-grid{grid-template-columns:1fr;max-width:420px}}
+  .char{background:var(--midnight-2);border:1px solid var(--line);border-radius:14px;
+    padding:28px 24px;text-align:center;transition:transform .18s,border-color .18s}
+  .char:hover{transform:translateY(-4px);border-color:var(--purple)}
+  .char .sigil{width:64px;height:64px;border-radius:50%;margin:0 auto 16px;
+    display:flex;align-items:center;justify-content:center;font-size:1.8rem}
+  .char.jessie .sigil{background:radial-gradient(circle at 35% 30%, #d8c2ff, var(--purple) 65%)}
+  .char.martin .sigil{background:radial-gradient(circle at 35% 30%, var(--gold-soft), #cf9a2d 70%)}
+  .char.demora .sigil{background:radial-gradient(circle at 35% 30%, #6b7bd6, #2a1746 70%)}
+  .char h3{color:#fff;font-size:1.2rem;margin-bottom:4px}
+  .char .role{color:var(--purple-soft);font-size:.78rem;text-transform:uppercase;
+    letter-spacing:.16em;margin-bottom:12px}
+  .char p{color:var(--muted);font-size:.96rem}
+
+  /* author */
+  .author{background:var(--midnight-2);border-top:1px solid var(--line);border-bottom:1px solid var(--line)}
+  .author-inner{max-width:760px;margin:0 auto;text-align:center}
+  .author-inner p{color:#dfe3ff;font-size:1.08rem;margin-bottom:18px}
+
+  /* signup */
+  .signup{text-align:center}
+  .signup-card{background:linear-gradient(160deg,var(--panel),#0d1233);
+    border:1px solid var(--purple);border-radius:18px;padding:48px 36px;max-width:620px;
+    margin:0 auto;box-shadow:0 0 50px rgba(155,109,255,.18)}
+  .signup-card h2{color:#fff;margin-bottom:10px}
+  .signup-card p{color:var(--muted);margin-bottom:26px}
+  .form-row{display:flex;gap:10px;max-width:440px;margin:0 auto;flex-wrap:wrap;justify-content:center}
+  .form-row input{flex:1;min-width:220px;padding:14px 18px;border-radius:999px;
+    border:1px solid var(--line);background:rgba(255,255,255,.04);color:var(--ink);font-size:1rem}
+  .form-row input::placeholder{color:#7d83a8}
+  .form-note{color:#7d83a8;font-size:.78rem;margin-top:14px}
+  .form-success{color:var(--gold-soft);font-weight:700;margin-top:18px;display:none}
+
+  /* footer */
+  footer{padding:50px 0 40px;text-align:center;border-top:1px solid var(--line)}
+  footer .social a{color:var(--muted);margin:0 12px;font-size:.92rem}
+  footer .copy{color:#6b7099;font-size:.82rem;margin-top:18px}
+  .build-note{background:#1a1206;border:1px dashed var(--gold);color:var(--gold-soft);
+    font-size:.82rem;padding:12px 18px;border-radius:8px;max-width:760px;margin:30px auto 0;text-align:left}
+</style>
+</head>
+<body>
+<div class="stars"></div>
+
+<nav>
+  <div class="wrap">
+    <span class="brand">JESSIE BARSTOW</span>
+    <div class="navlinks">
+      <a href="#story">The Story</a>
+      <a href="#teaser">Read the Opening</a>
+      <a href="#characters">Characters</a>
+      <a href="#author">The Author</a>
+      <a href="#signup">Get Notified</a>
+    </div>
+  </div>
+</nav>
+
+<header class="hero">
+  <div class="wrap">
+    <div class="eyebrow">A Portal-Fantasy Adventure</div>
+    <h1>The Traveling<br>Jessie Barstow</h1>
+    <p class="hook">"One ordinary girl. Infinite worlds. One door she never should have opened."</p>
+    <p class="byline">A novel by <strong>Matt Warnock</strong></p>
+    <div class="hero-cta">
+      <a href="#signup" class="btn">Get Notified at Launch</a>
+      <a href="#teaser" class="btn ghost">Read Chapter One</a>
+    </div>
+    <div class="cover">
+      <div class="ct">The Traveling<br>Jessie Barstow</div>
+      <div class="gem"></div>
+      <div class="ca">MATT WARNOCK</div>
+    </div>
+    <p class="cover-note">Placeholder cover — swap in final artwork here</p>
+  </div>
+</header>
+
+<section id="story" class="story">
+  <div class="wrap">
+    <h2 class="section-title">The Story</h2>
+    <div class="divider"></div>
+    <div style="height:30px"></div>
+    <p>Jessie Barstow is a perfectly ordinary girl — until the afternoon she ducks into a dusty magic shop to escape the things hunting her. Things that wear hoods and human faces, with eyes that glow like jack-o'-lanterns and far too many teeth.</p>
+    <p>When she vanishes from one world and reappears in another, Jessie discovers she's a <em>Traveler</em>, able to slip between worlds with a thought. But her gift is exactly what a power-hungry sorceress named Demora has been searching for — and she'll drain every world dry to claim it.</p>
+    <p>With the help of Martin, a down-on-his-luck magician who's about to remember that real magic exists, Jessie races across strange and wondrous worlds toward the Source of All Magic itself — where she'll decide the fate of every world, including her own.</p>
+    <blockquote class="pullquote">"Do you believe in magic?"</blockquote>
+  </div>
+</section>
+
+<section id="teaser">
+  <div class="wrap">
+    <h2 class="section-title">Read the Opening</h2>
+    <p class="section-sub">The first pages of Chapter One — "Jessie in the Box."</p>
+    <div class="teaser-panel">
+      <div class="teaser-fade">
+        <p>Jessie Barstow burst through the door of The Magic Mart and slammed it shut behind her. The little silver bell hanging from a springy strip of metal chimed brightly as the door batted it back and forth.</p>
+        <p>Her face was flushed, and her breath came in great, panting gasps. She glanced around, looking for a place to hide among the colorful costumes and pre-packaged tricks lining the walls of the small store.</p>
+        <p>"Hey, careful with the door!" called a young man from behind the counter.</p>
+        <p>Jessie started at the sound of his voice and spun to face him. He didn't look like one of <em>them</em>, one of the things that was chasing her. <em>They</em> looked like people, but their eyes glowed like jack-o-lanterns, and their mouths had too many teeth.</p>
+        <p>"I need a place to hide! Fast!" she said.</p>
+        <p>The man stared for a second, then nodded toward the far wall. "There's a vanishing cabinet on the back wall. It has a secret panel. You can hide in there."</p>
+      </div>
+      <div class="teaser-cta">
+        <a href="#signup" class="btn">Get the Free Chapter-One PDF</a>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section id="characters">
+  <div class="wrap">
+    <h2 class="section-title">Meet the Travelers</h2>
+    <div class="divider"></div>
+    <div style="height:36px"></div>
+    <div class="char-grid">
+      <div class="char jessie">
+        <div class="sigil">✦</div>
+        <h3>Jessie</h3>
+        <div class="role">The Traveler</div>
+        <p>An ordinary girl with an extraordinary, uncontrollable gift — vanishing from one world and landing in the next. Brave before she feels ready to be.</p>
+      </div>
+      <div class="char martin">
+        <div class="sigil">◉</div>
+        <h3>Martin</h3>
+        <div class="role">The Magician</div>
+        <p>A struggling magic-shop owner who flips a coin to stay calm — and is about to discover that the magic he gave up on was real all along.</p>
+      </div>
+      <div class="char demora">
+        <div class="sigil">✷</div>
+        <h3>Demora</h3>
+        <div class="role">The Sorceress</div>
+        <p>A girl who could mirror any magic she touched, grown into a queen who drains whole worlds to feed her power. She wants what Jessie has.</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section id="author" class="author">
+  <div class="wrap">
+    <div class="author-inner">
+      <h2 class="section-title">About the Author</h2>
+      <div class="divider"></div>
+      <div style="height:30px"></div>
+      <p><em>[Author bio placeholder]</em> — Matt Warnock is the author of <em>The Traveling Jessie Barstow</em>, his debut middle-grade fantasy adventure. Add a couple of warm, personal sentences here: where he's from, what he loves to write, and what inspired Jessie's worlds.</p>
+      <a href="#" class="btn ghost">Visit the Author Site →</a>
+    </div>
+  </div>
+</section>
+
+<section id="signup" class="signup">
+  <div class="wrap">
+    <div class="signup-card">
+      <h2>Be First Through the Door</h2>
+      <p>The book isn't out yet. Join the list and you'll be first to know when Jessie travels — plus get the free Chapter-One PDF.</p>
+      <form id="signupForm" class="form-row" onsubmit="return handleSignup(event)">
+        <input type="email" id="email" placeholder="you@example.com" required aria-label="Email address">
+        <button type="submit" class="btn">Notify Me</button>
+      </form>
+      <div class="form-success" id="formSuccess">✦ You're on the list. Watch your inbox for Chapter One.</div>
+      <p class="form-note">No spam — just launch news. Unsubscribe anytime.</p>
+    </div>
+    <div class="build-note">
+      <strong>Setup note (remove before launch):</strong> this form currently shows a confirmation only.
+      To collect real emails, connect it to a free service like ConvertKit, Mailchimp, or Formspree —
+      replace the <code>handleSignup</code> function with the provider's form action. Same list can feed the author site.
+    </div>
+  </div>
+</section>
+
+<footer>
+  <div class="wrap">
+    <div class="social">
+      <a href="#">Instagram</a>
+      <a href="#">Facebook</a>
+      <a href="mailto:hello@jessiebarstowbook.com">Contact</a>
+      <a href="#">Author Site</a>
+    </div>
+    <p class="copy">© <span id="yr"></span> Matt Warnock · The Traveling Jessie Barstow · JessieBarstowbook.com</p>
+  </div>
+</footer>
+
+<script>
+  document.getElementById('yr').textContent = new Date().getFullYear();
+  function handleSignup(e){
+    e.preventDefault();
+    var email = document.getElementById('email').value;
+    if(!email) return false;
+    document.getElementById('signupForm').style.display = 'none';
+    document.getElementById('formSuccess').style.display = 'block';
+    return false;
+  }
+</script>
+</body>
+</html>
