@@ -1,0 +1,30 @@
+{
+  "hosting": {
+    "site": "jessiebarstow",
+    "public": ".",
+    "ignore": [
+      "firebase.json",
+      ".firebaserc",
+      "**/.*",
+      "**/node_modules/**",
+      "archive/**",
+      "README.md"
+    ],
+    "cleanUrls": true,
+    "trailingSlash": false,
+    "headers": [
+      {
+        "source": "**/*.@(js|css|svg|woff2)",
+        "headers": [
+          { "key": "Cache-Control", "value": "public, max-age=31536000, immutable" }
+        ]
+      },
+      {
+        "source": "**/*.@(jpg|jpeg|png|webp|avif|gif)",
+        "headers": [
+          { "key": "Cache-Control", "value": "public, max-age=2592000" }
+        ]
+      }
+    ]
+  }
+}

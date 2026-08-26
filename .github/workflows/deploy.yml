@@ -1,0 +1,31 @@
+name: Deploy to Firebase Hosting
+
+# Static site — no build step. Every push to main publishes index.html and its
+# assets to the "jessiebarstow" Firebase Hosting site (set via the "site" field
+# in firebase.json, so no deploy target config is needed).
+
+on:
+  push:
+    branches: [main]
+  workflow_dispatch: {}
+
+permissions:
+  contents: read
+
+concurrency:
+  group: deploy-jessiebarstow
+  cancel-in-progress: true
+
+jobs:
+  deploy:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+
+      - name: Deploy to Firebase Hosting
+        uses: FirebaseExtended/action-hosting-deploy@v0
+        with:
+          repoToken: ${{ secrets.GITHUB_TOKEN }}
+          firebaseServiceAccount: ${{ secrets.FIREBASE_SERVICE_ACCOUNT_MATTWARNOCK_7003F }}
+          projectId: mattwarnock-7003f
+          channelId: live

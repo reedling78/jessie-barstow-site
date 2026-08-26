@@ -128,17 +128,26 @@
   .char-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:22px;max-width:920px;margin:0 auto}
   @media(max-width:760px){.char-grid{grid-template-columns:1fr;max-width:420px}}
   .char{background:var(--panel-2);border:1px solid var(--line);border-radius:14px;
-    padding:0 0 26px;text-align:center;overflow:hidden;
+    padding:0 0 30px;text-align:center;overflow:hidden;
     transition:transform .18s,border-color .18s,box-shadow .18s}
   .char:hover{transform:translateY(-4px);border-color:var(--teal);
     box-shadow:0 16px 40px rgba(0,0,0,.4)}
-  .char .portrait{position:relative;aspect-ratio:3/4;overflow:hidden;
-    margin-bottom:18px;background:#0c1c2b}
-  .char .portrait img{width:100%;height:100%;object-fit:cover;object-position:50% 8%;
-    display:block;transition:transform .4s ease}
-  .char:hover .portrait img{transform:scale(1.04)}
-  .char .portrait:after{content:"";position:absolute;inset:0;pointer-events:none;
-    background:linear-gradient(180deg,transparent 55%,rgba(16,33,50,.85) 100%)}
+  .char .emblem{position:relative;width:152px;height:152px;margin:36px auto 22px;
+    display:grid;place-items:center;border-radius:50%;
+    background:
+      radial-gradient(circle at 50% 42%, rgba(233,185,73,.14), transparent 62%),
+      radial-gradient(circle at 50% 100%, rgba(84,201,209,.12), transparent 70%),
+      #0c1c2b;
+    box-shadow:inset 0 0 0 1px rgba(84,201,209,.22), 0 12px 30px rgba(0,0,0,.35);
+    transition:box-shadow .25s ease, transform .25s ease}
+  .char .emblem:before{content:"";position:absolute;inset:-9px;border-radius:50%;
+    border:1px solid rgba(233,185,73,.16);transition:border-color .25s ease}
+  .char .emblem img{width:64%;height:64%;object-fit:contain;display:block;
+    filter:drop-shadow(0 0 14px rgba(233,185,73,.25));
+    transition:transform .35s ease}
+  .char:hover .emblem{box-shadow:inset 0 0 0 1px rgba(84,201,209,.5), 0 12px 34px rgba(0,0,0,.45)}
+  .char:hover .emblem:before{border-color:rgba(233,185,73,.4)}
+  .char:hover .emblem img{transform:scale(1.07)}
   .char h3{color:#fff;font-size:1.2rem;margin-bottom:4px;padding:0 24px}
   .char .role,.char p{padding-left:24px;padding-right:24px}
   .char .role{color:var(--teal-soft);font-size:.78rem;text-transform:uppercase;
@@ -190,7 +199,7 @@
 <header class="hero">
   <div class="wrap hero-grid">
     <div class="cover-shell">
-      <img src="cover-web.jpg" alt="The Traveling Jessie Barstow — cover art: a girl runs across a black-sand shore toward a glowing portal." width="400" height="592">
+      <img src="cover-web.jpg" alt="The Traveling Jessie Barstow — cover art: a girl runs across a black-sand shore toward a glowing portal." width="800" height="1107">
     </div>
     <div class="hero-text">
       <div class="eyebrow">A Portal-Fantasy Adventure</div>
@@ -244,19 +253,19 @@
     <div style="height:36px"></div>
     <div class="char-grid">
       <div class="char jessie">
-        <div class="portrait"><img src="char-jessie.jpg" alt="Jessie Barstow — a determined young girl with long chestnut hair, a yellow hoodie, and a patch-covered backpack." width="600" height="800" loading="lazy"></div>
+        <div class="emblem"><img src="icon-jessie.png" alt="A gold compass rose, the emblem of Jessie the Traveler." width="640" height="640" loading="lazy"></div>
         <h3>Jessie</h3>
         <div class="role">The Traveler</div>
         <p>An ordinary girl with an extraordinary gift, able to travel anywhere she wants at will. Brave in the face of terrible danger.</p>
       </div>
       <div class="char martin">
-        <div class="portrait"><img src="char-martin.jpg" alt="Martin — a lanky young magician in a rabbit-and-top-hat t-shirt, flipping a silver coin." width="600" height="800" loading="lazy"></div>
+        <div class="emblem"><img src="icon-martin.png" alt="A gold top hat and magic wand, the emblem of Martin the Magician." width="640" height="640" loading="lazy"></div>
         <h3>Martin</h3>
         <div class="role">The Magician</div>
         <p>A simple magic shop owner who gave up on the dream of real magic long ago. He must confront his past to face the future.</p>
       </div>
       <div class="char demora">
-        <div class="portrait"><img src="char-demora.jpg" alt="Demora — a regal sorceress-queen in a scarlet robe with solid-black eyes, seated among glowing vines." width="600" height="800" loading="lazy"></div>
+        <div class="emblem"><img src="icon-demora.png" alt="A gold crown, the emblem of Demora the Sorceress." width="640" height="640" loading="lazy"></div>
         <h3>Demora</h3>
         <div class="role">The Sorceress</div>
         <p>A powerful queen determined to control the flow of magic. She seeks to right the wrongs from her childhood and bring back that which was taken from her.</p>

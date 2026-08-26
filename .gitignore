@@ -1,1 +1,10 @@
+# os
 .DS_Store
+
+# firebase
+.firebase/
+firebase-debug.log
+firebase-debug.*.log
+
+# dependencies
+node_modules/
