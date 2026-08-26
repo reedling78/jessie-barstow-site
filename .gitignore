@@ -8,3 +8,8 @@ firebase-debug.*.log
 
 # dependencies
 node_modules/
+
+# firebase agent skills
+.agents/
+.claude/
+skills-lock.json
