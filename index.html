@@ -128,6 +128,7 @@
   .teaser-fade:after{content:"";position:absolute;bottom:0;left:0;right:0;height:120px;
     background:linear-gradient(transparent,var(--panel))}
   .teaser-cta{text-align:center;margin-top:26px}
+  .teaser-note{margin:12px 0 0;font-size:.86rem;color:var(--muted)}
 
   /* characters */
   .char-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:22px;max-width:920px;margin:0 auto}
@@ -245,7 +246,8 @@
         <p>The man stared for a second, then nodded toward the far wall. "There's a vanishing cabinet on the back wall. It has a secret panel. You can hide in there."</p>
       </div>
       <div class="teaser-cta">
-        <a href="#signup" class="btn">Get the Free Chapter-One PDF</a>
+        <a href="/the-traveling-jessie-barstow-chapter-one.pdf" class="btn" target="_blank" rel="noopener">Read the Free Chapter-One PDF</a>
+        <p class="teaser-note">Opens the full first chapter as a PDF &mdash; no email required.</p>
       </div>
     </div>
   </div>
@@ -295,12 +297,12 @@
   <div class="wrap">
     <div class="signup-card">
       <h2>Be the first to travel!</h2>
-      <p>The book isn't out yet. Join the list and you'll be first to know when Jessie travels, plus get the free Chapter-One PDF.</p>
+      <p>The book isn't out yet. Join the list and you'll be first to know when Jessie travels.</p>
       <form id="signupForm" class="form-row" onsubmit="return handleSignup(event)">
         <input type="email" id="email" placeholder="you@example.com" required aria-label="Email address">
         <button type="submit" class="btn">Notify Me</button>
       </form>
-      <div class="form-success" id="formSuccess">&#10022; You're on the list. Watch your inbox for Chapter One.</div>
+      <div class="form-success" id="formSuccess">&#10022; You're on the list. Watch your inbox for launch news.</div>
       <p class="form-note">No spam, just launch news. Unsubscribe anytime.</p>
     </div>
   </div>
