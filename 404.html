@@ -45,6 +45,48 @@
   .btn.ghost{background:transparent;color:var(--gold-soft);border-color:var(--line)}
   .btn:hover{filter:brightness(1.08)}
 </style>
+
+<!-- Google Analytics 4 + Consent Mode v2.
+     ONE measurement ID across BOTH sites (see mattwarnockauthor/src/config.ts) —
+     that is what keeps a book-site <-> author-site visit as a single session.
+     The consent defaults must be pushed BEFORE gtag.js loads, so do not reorder
+     these three tags. Bump ?v= on analytics.js after editing it: firebase.json
+     caches **/*.js as immutable for a year. -->
+<script>
+  window.MW_ANALYTICS = { measurementId: "G-9ZHBF7V80R", site: "book" }; // "G-XXXXXXXXX"
+
+  window.dataLayer = window.dataLayer || [];
+  function gtag(){ dataLayer.push(arguments); }
+  window.gtag = gtag;
+
+  var mwStored = null;
+  try { mwStored = localStorage.getItem("mw-consent"); } catch (e) {}
+
+  gtag("consent", "default", {
+    ad_storage: "denied",
+    ad_user_data: "denied",
+    ad_personalization: "denied",
+    analytics_storage: "denied",
+    functionality_storage: "granted",
+    security_storage: "granted",
+    wait_for_update: 500
+  });
+
+  if (mwStored === "granted") {
+    gtag("consent", "update", { analytics_storage: "granted" });
+  }
+
+  if (window.MW_ANALYTICS.measurementId) {
+    gtag("js", new Date());
+    gtag("config", window.MW_ANALYTICS.measurementId);
+
+    var mwTag = document.createElement("script");
+    mwTag.async = true;
+    mwTag.src = "https://www.googletagmanager.com/gtag/js?id=" + window.MW_ANALYTICS.measurementId;
+    document.head.appendChild(mwTag);
+  }
+</script>
+<script defer src="/analytics.js?v=1"></script>
 </head>
 <body>
 <div class="backdrop"></div><div class="stars"></div>
