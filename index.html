@@ -41,7 +41,14 @@
     background:var(--bg);
     line-height:1.65;
     overflow-x:hidden;
+    /* sticky footer: fill the viewport on short pages, scroll normally on long ones */
+    min-height:100vh;
+    min-height:100svh;
+    display:flex;
+    flex-direction:column;
   }
+  body > nav,
+  body > footer{flex-shrink:0}
   /* dusk gradient + stars backdrop */
   .backdrop{position:fixed;inset:0;z-index:0;pointer-events:none;
     background:
@@ -178,7 +185,8 @@
   .preorder-note{color:#74909d;font-size:.82rem;margin-top:18px;margin-bottom:0}
 
   /* footer */
-  footer{padding:50px 0 40px;text-align:center;border-top:1px solid var(--line)}
+  footer{padding:50px 0 40px;text-align:center;border-top:1px solid var(--line);
+    margin-top:auto} /* absorbs leftover space so the footer pins to the bottom */
   footer .social a{color:var(--muted);margin:0 12px;font-size:.92rem}
   footer .copy{color:#5e7886;font-size:.82rem;margin-top:18px}
 </style>
