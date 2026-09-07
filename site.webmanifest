@@ -1,0 +1,11 @@
+{
+  "name": "The Traveling Jessie Barstow",
+  "short_name": "Jessie Barstow",
+  "icons": [
+    { "src": "/icon-192.png", "sizes": "192x192", "type": "image/png", "purpose": "any maskable" },
+    { "src": "/icon-512.png", "sizes": "512x512", "type": "image/png", "purpose": "any maskable" }
+  ],
+  "theme_color": "#0a1622",
+  "background_color": "#0a1622",
+  "display": "standalone"
+}
