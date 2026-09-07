@@ -165,19 +165,17 @@
   .author-inner{max-width:760px;margin:0 auto;text-align:center}
   .author-inner p{color:#d8e4e9;font-size:1.08rem;margin-bottom:18px}
 
-  /* signup */
-  .signup{text-align:center}
-  .signup-card{background:linear-gradient(160deg,var(--panel),#0c1c2b);
+  /* preorder */
+  .preorder{text-align:center}
+  .preorder-card{background:linear-gradient(160deg,var(--panel),#0c1c2b);
     border:1px solid var(--teal);border-radius:18px;padding:48px 36px;max-width:620px;
     margin:0 auto;box-shadow:0 0 50px rgba(84,201,209,.16)}
-  .signup-card h2{color:#fff;margin-bottom:10px}
-  .signup-card p{color:var(--muted);margin-bottom:26px}
-  .form-row{display:flex;gap:10px;max-width:440px;margin:0 auto;flex-wrap:wrap;justify-content:center}
-  .form-row input{flex:1;min-width:220px;padding:14px 18px;border-radius:999px;
-    border:1px solid var(--line);background:rgba(255,255,255,.04);color:var(--ink);font-size:1rem}
-  .form-row input::placeholder{color:#7d93a0}
-  .form-note{color:#74909d;font-size:.78rem;margin-top:14px}
-  .form-success{color:var(--gold-soft);font-weight:700;margin-top:18px;display:none}
+  .preorder-card h2{color:#fff;margin-bottom:10px}
+  .preorder-card p{color:var(--muted);margin-bottom:26px}
+  .preorder-date{display:inline-block;color:var(--gold-soft);font-family:"Cinzel",serif;
+    font-size:.82rem;letter-spacing:.16em;text-transform:uppercase;
+    border:1px solid rgba(233,185,73,.35);border-radius:999px;padding:7px 16px;margin-bottom:18px}
+  .preorder-note{color:#74909d;font-size:.82rem;margin-top:18px;margin-bottom:0}
 
   /* footer */
   footer{padding:50px 0 40px;text-align:center;border-top:1px solid var(--line)}
@@ -197,7 +195,7 @@
       <a href="#teaser">Read the Opening</a>
       <a href="#characters">Characters</a>
       <a href="#author">The Author</a>
-      <a href="#signup">Get Notified</a>
+      <a href="#preorder">Preorder</a>
     </div>
   </div>
 </nav>
@@ -213,7 +211,7 @@
       <p class="hook">"One special girl. One power-hungry queen. One chance to save all of magic."</p>
       <p class="byline">A novel by <strong>Matt Warnock</strong></p>
       <div class="hero-cta">
-        <a href="#signup" class="btn">Get Notified at Launch</a>
+        <a href="https://books2read.com/u/b6noEW" class="btn" target="_blank" rel="noopener">Preorder the Book</a>
         <a href="#teaser" class="btn ghost">Read Chapter One</a>
       </div>
     </div>
@@ -288,22 +286,19 @@
       <div class="divider"></div>
       <div style="height:30px"></div>
       <p>Matt Warnock is the author of <em>The Traveling Jessie Barstow</em>, his debut young-adult fantasy novel. Matt is a lifelong resident of Illinois where he lives with his wife, children, and their dogs. When not writing, he enjoys hiking, gardening, and too many hobbies.</p>
-      <a href="#" class="btn ghost">Visit the Author Site &rarr;</a>
+      <a href="https://mattwarnockauthor.web.app" class="btn ghost">Visit the Author Site &rarr;</a>
     </div>
   </div>
 </section>
 
-<section id="signup" class="signup">
+<section id="preorder" class="preorder">
   <div class="wrap">
-    <div class="signup-card">
+    <div class="preorder-card">
+      <span class="preorder-date">Available September 14, 2026</span>
       <h2>Be the first to travel!</h2>
-      <p>The book isn't out yet. Join the list and you'll be first to know when Jessie travels.</p>
-      <form id="signupForm" class="form-row" onsubmit="return handleSignup(event)">
-        <input type="email" id="email" placeholder="you@example.com" required aria-label="Email address">
-        <button type="submit" class="btn">Notify Me</button>
-      </form>
-      <div class="form-success" id="formSuccess">&#10022; You're on the list. Watch your inbox for launch news.</div>
-      <p class="form-note">No spam, just launch news. Unsubscribe anytime.</p>
+      <p>Preorder <em>The Traveling Jessie Barstow</em> now and it lands on your shelf &mdash; or your e-reader &mdash; the day it arrives.</p>
+      <a href="https://books2read.com/u/b6noEW" class="btn" target="_blank" rel="noopener">Preorder Now</a>
+      <p class="preorder-note">Choose your favorite retailer at checkout.</p>
     </div>
   </div>
 </section>
@@ -311,10 +306,8 @@
 <footer>
   <div class="wrap">
     <div class="social">
-      <a href="#">Instagram</a>
-      <a href="#">Facebook</a>
-      <a href="mailto:hello@jessiebarstowbook.com">Contact</a>
-      <a href="#">Author Site</a>
+      <a href="https://mattwarnockauthor.web.app/contact">Contact</a>
+      <a href="https://mattwarnockauthor.web.app">Author Site</a>
     </div>
     <p class="copy">&copy; <span id="yr"></span> Matt Warnock &middot; The Traveling Jessie Barstow &middot; JessieBarstowbook.com</p>
   </div>
@@ -322,14 +315,6 @@
 
 <script>
   document.getElementById('yr').textContent = new Date().getFullYear();
-  function handleSignup(e){
-    e.preventDefault();
-    var email = document.getElementById('email').value;
-    if(!email) return false;
-    document.getElementById('signupForm').style.display = 'none';
-    document.getElementById('formSuccess').style.display = 'block';
-    return false;
-  }
 </script>
 </body>
 </html>
