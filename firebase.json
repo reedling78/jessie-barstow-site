@@ -8,6 +8,7 @@
       "**/.*",
       "**/node_modules/**",
       "archive/**",
+      "pdf-build/**",
       "README.md"
     ],
     "cleanUrls": true,
